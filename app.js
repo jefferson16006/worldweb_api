@@ -5,6 +5,7 @@ const connectDB = require('./db/connect')
 const notFoundMiddleware = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler')
 const authenticationMiddleware = require('./middleware/auth');
+const aiRoutes = require('./routes/ai-model');
 const authRouter = require('./routes/auth')
 require('dotenv').config();
 require('express-async-errors');
@@ -16,13 +17,12 @@ app.use(cors());
 //     credentials: true 
 // }));
 
-
 //routes
 app.get('/', (req, res) => {
     res.send('Home route')
 })
 app.use('/api/auth', authRouter)
-app.use('/api/ai', require('./routes/ai'));
+app.use('/api', aiRoutes);
 
 //middlewares
 app.use(errorHandlerMiddleware);
