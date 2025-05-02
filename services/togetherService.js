@@ -16,6 +16,14 @@ const getTogetherResponse = async (prompt) => {
 }
 
 Rules:
+- It is excruciatingly compulsory that **word** must exist. If something incomprehensible, incoherent, unintelligible or meaningless is put as an input, this should be the response format:
+{
+  "word": "gibberish",
+  "synonyms": [synonym_to_gibberish],
+  "antonyms": [antonym_to_gibberish],
+  "usage": [usage_of_gibberish],
+  "suggestions": [other_suggestions_to_gibberish]
+}
 - Each array (**synonyms**, **antonyms**, **usage**, and **suggestions**) must contain **at least 3 items**, even if you have to be creative or infer meaning.
 - If the user input is vague or no perfect match exists, do your best and populate the "suggestions" array with related alternatives.
 - Keep the output strictly in JSON. No markdown, no explanations, no code blocks.

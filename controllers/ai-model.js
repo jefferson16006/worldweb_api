@@ -6,7 +6,8 @@ const handleChat = async (req, res) => {
   const { searchInput } = req.body
 
   if (!searchInput) {
-    throw new BadRequestError("Prompt is required.")
+    res.status(StatusCodes.BAD_REQUEST).json({ error: "Prompt is required." })
+    return
   }
 
   try {
@@ -21,7 +22,7 @@ const handleChat = async (req, res) => {
     res.status(StatusCodes.OK).json(data)
   } catch (err) {
     console.error("Parsing error:", err.message)
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: "Failed to parse model response." })
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: "Server error. Please try again very soon." })
   }
 }
 
