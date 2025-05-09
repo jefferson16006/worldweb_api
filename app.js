@@ -18,8 +18,9 @@ app.use(cors());
 // }));
 
 //routes
-app.get('/', (req, res) => {
+app.get('/server-uptime', (req, res) => {
     console.log('Server pinged.')
+    res.status(200).send('API is running');
 })
 app.use('/api/auth', authRouter)
 app.use('/api', aiRoutes);
