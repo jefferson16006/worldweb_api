@@ -19,7 +19,7 @@ app.use(cors());
 
 //routes
 app.get('/', (req, res) => {
-    res.send('Home route')
+    console.log('Server pinged.')
 })
 app.use('/api/auth', authRouter)
 app.use('/api', aiRoutes);
